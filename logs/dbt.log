@@ -31,3 +31,35 @@ Happy modeling!
 [0m04:06:29.183163 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7669d1462000>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7669d1d02420>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7669d1439370>]}
 [0m04:06:29.184832 [debug] [MainThread]: Flushing usage events
 [0m04:06:30.319171 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m01:19:20.946075 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d04f8953380>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d04f88e3bc0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d04f8a43aa0>]}
+
+
+============================== 01:19:20.949474 | 98ad58c5-a374-40c7-aea5-32e0de13b783 ==============================
+[0m01:19:20.949474 [info ] [MainThread]: Running with dbt=1.11.8
+[0m01:19:20.950315 [debug] [MainThread]: running dbt with arguments {'no_print': 'None', 'fail_fast': 'False', 'warn_error': 'None', 'write_json': 'True', 'invocation_command': 'dbt run --select models/silver/silver_customer.sql', 'cache_selected_only': 'False', 'log_cache_events': 'False', 'indirect_selection': 'eager', 'log_path': 'logs', 'log_format': 'default', 'empty': 'False', 'partial_parse': 'True', 'profiles_dir': '/home/ahmed-sami/.dbt', 'use_experimental_parser': 'False', 'debug': 'False', 'quiet': 'False', 'target_path': 'None', 'use_colors': 'True', 'static_parser': 'True', 'introspect': 'True', 'printer_width': '80', 'version_check': 'True', 'send_anonymous_usage_stats': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])'}
+[0m01:19:20.951079 [error] [MainThread]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path /home/ahmed-sami/Desktop/traks/dbt/Frist_project/dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m01:19:20.952216 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": false, "command_wall_clock_time": 0.07309764, "process_in_blocks": "0", "process_kernel_time": 0.221885, "process_mem_max_rss": "103512", "process_out_blocks": "16", "process_user_time": 2.879518}
+[0m01:19:20.952954 [debug] [MainThread]: Command `dbt run` failed at 01:19:20.952832 after 0.07 seconds
+[0m01:19:20.953465 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d04f6bf1430>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d04f5d2dd30>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d04f5c807a0>]}
+[0m01:19:20.954058 [debug] [MainThread]: Flushing usage events
+[0m01:19:23.485642 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m01:20:20.971409 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7eda3769c530>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7eda381f1be0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7eda37f4a060>]}
+
+
+============================== 01:20:20.974122 | 23b57778-71ef-4763-84d0-96cb8480948c ==============================
+[0m01:20:20.974122 [info ] [MainThread]: Running with dbt=1.11.8
+[0m01:20:20.974867 [debug] [MainThread]: running dbt with arguments {'partial_parse': 'True', 'log_path': 'logs', 'introspect': 'True', 'log_format': 'default', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'use_experimental_parser': 'False', 'profiles_dir': '/home/ahmed-sami/.dbt', 'printer_width': '80', 'cache_selected_only': 'False', 'version_check': 'True', 'use_colors': 'True', 'no_print': 'None', 'target_path': 'None', 'static_parser': 'True', 'write_json': 'True', 'quiet': 'False', 'warn_error': 'None', 'indirect_selection': 'eager', 'debug': 'False', 'send_anonymous_usage_stats': 'True', 'log_cache_events': 'False', 'empty': 'False', 'fail_fast': 'False', 'invocation_command': 'dbt run --select models/silver/silver_customers.sql'}
+[0m01:20:20.975420 [error] [MainThread]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path /home/ahmed-sami/Desktop/traks/dbt/Frist_project/dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m01:20:20.976380 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": false, "command_wall_clock_time": 0.05669707, "process_in_blocks": "0", "process_kernel_time": 0.124617, "process_mem_max_rss": "103240", "process_out_blocks": "8", "process_user_time": 1.483441}
+[0m01:20:20.977083 [debug] [MainThread]: Command `dbt run` failed at 01:20:20.976970 after 0.06 seconds
+[0m01:20:20.977523 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7eda3769c530>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7eda375f07a0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7eda37d06330>]}
+[0m01:20:20.978122 [debug] [MainThread]: Flushing usage events
+[0m01:20:22.372098 [debug] [MainThread]: An error was encountered while trying to flush usage events

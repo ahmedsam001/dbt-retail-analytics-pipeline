@@ -1,0 +1,169 @@
+version: 2
+
+models:
+  - name: silver_customers
+    columns:
+      - name: customer_sk
+        tests:
+          - not_null
+          - unique
+
+      - name: customer_code
+        tests:
+          - not_null
+          - unique
+
+      - name: full_name
+        tests:
+          - not_null
+
+      - name: email
+        tests:
+          - not_null
+
+      - name: loyalty_tier
+        tests:
+          - accepted_values:
+              values: ['Bronze', 'Silver', 'Gold', 'Platinum' ,'None']
+      - name: gender
+        tests:
+          - accepted_values:
+              values: ['Male', 'Female', 'Unknown']
+
+      - name: is_premium_customer
+        tests:
+          - not_null
+ 
+  - name: silver_products
+    columns:
+      - name: product_sk
+        tests:
+          - not_null
+          - unique
+
+      - name: product_code
+        tests:
+          - not_null
+          - unique 
+
+      - name: price_tier
+        tests:
+          - accepted_values:
+              values: ['Budget', 'Mid-Range', 'Premium', 'Luxury']
+ 
+  - name: silver_stores
+    columns:
+      - name: store_sk
+        description: Surrogate key for the store
+        tests:
+          - not_null
+          - unique
+
+      - name: store_code
+        tests:
+          - not_null
+          - unique
+
+      - name: store_size_category
+        tests:
+          - accepted_values:
+              values: ['Small', 'Medium', 'Large', 'Flagship']
+ 
+  - name: silver_data
+    columns:
+      - name: date_sk
+        tests:
+          - not_null
+          - unique
+
+      - name: date
+        tests:
+          - not_null
+          - unique
+
+
+  - name: silver_sales
+    tests:
+      - high_discount_check:
+          column_name: discount_pct
+    columns:
+      - name: sales_id
+        tests:
+          - not_null
+          - unique
+
+      - name: date_sk
+        tests:
+          - not_null
+          - relationships:
+              to: ref('silver_data')
+              field: date_sk
+
+      - name: store_sk
+        tests:
+          - not_null
+          - relationships:
+              to: ref('silver_stores')
+              field: store_sk
+
+      - name: product_sk
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_products')
+              field: product_sk
+
+      - name: customer_sk
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_customers')
+              field: customer_sk
+
+      - name: net_amount
+        tests:
+          - positive_amount:
+              arguments:
+                column_name: net_amount
+          - not_null
+      - name: discount_pct
+        tests:
+          - not_null
+
+      - name: is_high_discount
+        tests:
+          - not_null
+ 
+  - name: silver_returns
+    columns:
+      - name: sales_id
+        tests:
+          - not_null
+
+      - name: date_sk
+        tests:
+          - not_null
+          - relationships:
+              to: ref('silver_data')
+              field: date_sk
+
+      - name: store_sk
+        tests:
+          - not_null
+          - relationships:
+              to: ref('silver_stores')
+              field: store_sk
+
+      - name: product_sk
+        tests:
+          - not_null
+          - relationships:
+              to: ref('silver_products')
+              field: product_sk
+
+      - name: return_category
+        tests:
+          - accepted_values:
+              values: ['Product Quality', 'Fulfillment Issue', 'Customer Decision', 'Other']
+
+ 

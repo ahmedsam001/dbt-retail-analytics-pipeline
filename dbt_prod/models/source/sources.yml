@@ -11,3 +11,19 @@ sources:
       - name: dim_product
       - name: dim_customer
 
+
+
+
+  - name: bronze
+    database: dbt_prod
+    schema: bronze
+    tables:
+      - name: bronze_sales
+      - name: bronze_returns
+      - name: bronze_data
+      - name: bronze_store
+      - name: bronze_product
+      - name: bronze_customer
+
+
+
