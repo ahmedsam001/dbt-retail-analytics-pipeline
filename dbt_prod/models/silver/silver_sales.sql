@@ -26,11 +26,11 @@ cleaned as (
         initcap(trim(payment_method))                      as payment_method,
 
         -- Derived measures
-        {{ discount_pct(discount_amount, gross_amount) }}              as discount_pct,
+        {{ discount_pct('discount_amount', 'gross_amount') }} as discount_pct,
  
 
         -- Flag transactions with unusually high discount (> 50%)
-        {{high_discount(discount_amount, gross_amount) }} as is_high_discount,
+        {{ high_discount('discount_amount', 'gross_amount') }} as is_high_discount,
 
 
         -- Promotion flag

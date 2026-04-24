@@ -1,7 +1,7 @@
 version: 2
 sources:
   - name: source
-    database: dbt_prod
+    database: '{{target.catalog}}'
     schema: source
     tables:
       - name: fact_sales
@@ -15,7 +15,7 @@ sources:
 
 
   - name: bronze
-    database: dbt_prod
+    database: '{{target.catalog}}'
     schema: bronze
     tables:
       - name: bronze_sales
@@ -27,3 +27,11 @@ sources:
 
 
 
+
+  - name: gold
+    database: '{{target.catalog}}'
+    schema: gold
+    tables:
+      - name: daily_sales
+
+      - name: mart_sales_monthly

@@ -1,0 +1,42 @@
+version: 2
+ 
+models:
+ 
+  - name: mart_sales_daily
+    description: >
+      Daily sales performance per store.
+      Includes revenue, volume, discount, promotion, and return metrics.
+      Grain: one row per date × store.
+    config:
+      materialized: table
+    columns:
+      - name: date
+        tests: [not_null]
+      - name: store_sk
+        tests: [not_null]
+      - name: net_revenue
+        tests: [not_null]
+      - name: total_transactions
+        tests: [not_null]
+      - name: avg_discount_pct
+        description: Average discount percentage across transactions that day
+      - name: promo_attach_rate_pct
+        description: Percentage of transactions that included a promotion
+      - name: net_revenue_after_returns
+        description: Net revenue minus refunds issued on the same date and store
+ 
+  - name: mart_sales_monthly
+    description: >
+      Monthly sales performance per store with payment method breakdown.
+      Grain: one row per year × month × store.
+    config:
+      materialized: table
+    columns:
+      - name: year
+        tests: [not_null]
+      - name: month
+        tests: [not_null]
+      - name: store_sk
+        tests: [not_null]
+      - name: net_revenue
+        tests: [not_null]
